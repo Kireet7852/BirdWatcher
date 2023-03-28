@@ -23,13 +23,24 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="64dp"
         android:backgroundTint="@color/black"
-        android:text="Get Location"
         android:onClick="getLocation"
+        android:text="Get Location"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/save_button"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/purple_500"
+        android:onClick="clickSave"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 <!--    <TextView-->
 <!--        android:id="@+id/lattitude"-->
@@ -108,205 +119,211 @@
 <!--        app:layout_constraintHorizontal_bias="0.086"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/city" />-->
-    <TableLayout android:padding="10px"
+
+
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:stretchColumns="1">
+        android:padding="10px"
+        android:stretchColumns="1"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_span="2"
+                android:fontFamily="cursive"
                 android:gravity="center"
                 android:text="Bird Location"
                 android:textColor="@color/black"
                 android:textSize="60dp"
-                android:textStyle="bold"
-                android:fontFamily="cursive" />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Bird Name :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/bird_name"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="3"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                android:maxLines="3"
-                android:ellipsize="none"
-                android:layout_weight="1"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Date :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/date_time"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="2"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                android:maxLines="2"
-                android:ellipsize="none"
-                android:layout_weight="1"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Recognition :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/recog_type"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Confidence :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/confidence"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Lattitude :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/lattitude"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Longitude :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/longitude"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Address :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/address"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="8"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:maxLines="8"
-                android:ellipsize="none"
-                android:layout_weight="1"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="City :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/city"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Country :"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/country"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </TableRow>
 
     </TableLayout>
