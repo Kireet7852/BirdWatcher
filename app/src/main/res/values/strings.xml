@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BirdWatcher</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup">SignUp</string>
+    <string name="click_to_login">Click to login</string>
+    <string name="click_to_sign_up">Click to Sign Up</string>
+    <string name="logout">LOGOUT</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "329296196963",
+    "project_id": "birdwatcher-9b2d3",
+    "storage_bucket": "birdwatcher-9b2d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329296196963:android:7d572aa46f13261a478f56",
+        "android_client_info": {
+          "package_name": "com.example.birdwatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329296196963-utgu29664tu0ra7rb4a5tdr2heb77rtc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfooJgucI_VYWHVbOkV2SUuVdQEVcySIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329296196963-utgu29664tu0ra7rb4a5tdr2heb77rtc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
