@@ -36,7 +36,7 @@ public class LocationSet extends AppCompatActivity {
 
 //    FusedLocationProviderClient fusedLocationProviderClient;
     TextView latitude_label,longitude_label,address,city,country;
-    TextView bird_spices, datetime, recognition_type;
+    TextView bird_spices, datetime, recognition_type, prediction;
     Button getLocation;
     private final static int REQUEST_CODE = 100;
 //
@@ -63,6 +63,7 @@ public class LocationSet extends AppCompatActivity {
         bird_spices = findViewById(R.id.bird_name);
         datetime = findViewById(R.id.date_time);
         recognition_type = findViewById(R.id.recog_type);
+        prediction = findViewById(R.id.confidence);
 
         latitude_label = findViewById(R.id.lattitude);
         longitude_label = findViewById(R.id.longitude);
@@ -96,6 +97,7 @@ public class LocationSet extends AppCompatActivity {
         bird_spices.setText(intent.getStringExtra("clickedName"));
         recognition_type.setText(intent.getStringExtra("clickedRecognitionType"));
         datetime.setText(intent.getStringExtra("formattedDataTime"));
+        prediction.setText(intent.getStringExtra("confidence_level"));
 
 
         getLocation.setOnClickListener(new View.OnClickListener() {

@@ -195,6 +195,26 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:text="Confidence :"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/confidence"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                />
+        </TableRow>
+
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Lattitude :"
                 android:textColor="@color/black"
                 android:textSize="25dp"

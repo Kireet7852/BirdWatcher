@@ -134,6 +134,7 @@ public class ImageClassificationActivity extends MLImageHelperActivity {
                     intent.putExtra("clickedName", word);
                     intent.putExtra("clickedRecognitionType", clickedRecognitionType);
                     intent.putExtra("formattedDataTime", formattedDateTime);
+                    intent.putExtra("confidence_level",clickedItem.split(":")[1].trim());
                     startActivity(intent);
 //                    dialog.dismiss();
                 });
