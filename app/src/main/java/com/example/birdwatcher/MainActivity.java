@@ -1,10 +1,5 @@
 package com.example.birdwatcher;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.birdwatcher.audio.AudioClassificationActivity;
 import com.example.birdwatcher.audio.BirdSoundDetectorActivity;
@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity implements AlgoListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+        if(id == R.id.btn_save_data){
+            Intent intent = new Intent(getApplicationContext(), Save_data.class);
+            startActivity(intent);
+            return true;
+        }
 
         if (id == R.id.btn_logout) {
             // Handle button click event

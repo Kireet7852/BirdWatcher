@@ -33,6 +33,9 @@
         android:theme="@style/Theme.Material3.Light"
         tools:targetApi="30">
         <activity
+            android:name=".Save_data"
+            android:exported="false" />
+        <activity
             android:name=".web_search"
             android:exported="false" />
         <activity
