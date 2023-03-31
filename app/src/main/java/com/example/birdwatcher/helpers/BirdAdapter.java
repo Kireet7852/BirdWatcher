@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,10 +24,12 @@ public class BirdAdapter extends RecyclerView.Adapter<BirdAdapter.BirdViewHolder
 
     private DatabaseReference mDatabase;
     private List<Bird> mBirdList;
+    private List<Bird> mFilteredBirdList;
 
     public BirdAdapter(DatabaseReference database) {
         mDatabase = database;
         mBirdList = new ArrayList<>();
+        mFilteredBirdList = new ArrayList<>();
 
 
         //new data has been add
@@ -34,10 +37,12 @@ public class BirdAdapter extends RecyclerView.Adapter<BirdAdapter.BirdViewHolder
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mBirdList.clear();
+                mFilteredBirdList.clear();
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Bird bird = dataSnapshot.getValue(Bird.class);
                     mBirdList.add(bird);
+                    mFilteredBirdList.add(bird);
                 }
 
                 notifyDataSetChanged();
@@ -60,7 +65,8 @@ public class BirdAdapter extends RecyclerView.Adapter<BirdAdapter.BirdViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull BirdViewHolder holder, int position) {
-        Bird bird = mBirdList.get(position);
+        //Bird bird = mBirdList.get(position);
+        Bird bird = mFilteredBirdList.get(position);
 
         holder.mSpeciesTextView.setText(bird.getBird_species());
 //        holder.mPredictionTextView.setText(bird.getPrediction());
@@ -73,9 +79,57 @@ public class BirdAdapter extends RecyclerView.Adapter<BirdAdapter.BirdViewHolder
 
     @Override
     public int getItemCount() {
-        return mBirdList.size();
+        //return mBirdList.size();
+        return mFilteredBirdList.size();
     }
 
+//    public void search(String query) {
+//        List<Bird> filteredList = new ArrayList<>();
+//        for (Bird bird : mBirdList) {
+//            if (bird.getBird_species().toLowerCase().contains(query.toLowerCase())) {
+//                filteredList.add(bird);
+//            }
+//        }
+//        mBirdList = filteredList;
+//        notifyDataSetChanged();
+//    }
+
+
+    //@Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String searchString = constraint.toString().toLowerCase();
+
+                if (searchString.isEmpty()) {
+                    mFilteredBirdList = mBirdList;
+                } else {
+                    List<Bird> filteredList = new ArrayList<>();
+
+                    for (Bird bird : mBirdList) {
+                        if ((bird.getBird_species().toLowerCase().contains(searchString)) || (bird.getDate_time().toLowerCase().contains(searchString))
+                                || (bird.getCountry().toLowerCase().contains(searchString)) || (bird.getCity().toLowerCase().contains(searchString))
+                                || (bird.getU_email().toLowerCase().contains(searchString)) || (bird.getRecognition_type().toLowerCase().contains(searchString))) {
+                            filteredList.add(bird);
+                        }
+                    }
+
+                    mFilteredBirdList = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mFilteredBirdList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                mFilteredBirdList = (List<Bird>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
 
 
 
