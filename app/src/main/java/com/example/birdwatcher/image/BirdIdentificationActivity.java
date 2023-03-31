@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class FlowerIdentificationActivity extends MLImageHelperActivity {
+public class BirdIdentificationActivity extends MLImageHelperActivity {
 
     private ImageLabeler imageLabeler;
     private ListView outputView;

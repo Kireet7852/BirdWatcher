@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.birdwatcher.audio.AudioClassificationActivity;
 import com.example.birdwatcher.audio.BirdSoundDetectorActivity;
-import com.example.birdwatcher.image.FlowerIdentificationActivity;
+import com.example.birdwatcher.image.BirdIdentificationActivity;
 import com.example.birdwatcher.image.ImageClassificationActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements AlgoListener {
 
         ArrayList<Algo> arrayList = new ArrayList<>();
         arrayList.add(new Algo(R.drawable.baseline_image_black_48, "Image Classification", ImageClassificationActivity.class));
-        arrayList.add(new Algo(R.drawable.baseline_filter_vintage_black_48, "Flower Identification", FlowerIdentificationActivity.class));
+        arrayList.add(new Algo(R.drawable.baseline_filter_vintage_black_48, "Bird Identification", BirdIdentificationActivity.class));
         arrayList.add(new Algo(R.drawable.baseline_music_note_black_48, "Audio Classification", AudioClassificationActivity.class));
         arrayList.add(new Algo(R.drawable.baseline_flutter_dash_black_48, "Bird Sound Identifier", BirdSoundDetectorActivity.class));
 

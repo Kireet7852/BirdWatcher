@@ -63,9 +63,11 @@
             android:exported="true" />
         <activity
             android:name=".image.ImageClassificationActivity"
+            android:label="Image Identifier"
             android:screenOrientation="userPortrait" />
         <activity
-            android:name=".image.FlowerIdentificationActivity"
+            android:name=".image.BirdIdentificationActivity"
+            android:label="Bird Image Identifier"
             android:screenOrientation="userPortrait" />
         <activity
             android:name=".audio.AudioClassificationActivity"
