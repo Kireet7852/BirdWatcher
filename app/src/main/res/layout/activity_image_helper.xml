@@ -48,40 +48,25 @@
             android:id="@+id/buttonPickPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onPickImage"
             android:text="Pick Photo"
-            app:layout_constraintBottom_toBottomOf="@id/buttonLocation"
-            app:layout_constraintEnd_toStartOf="@+id/buttonTakePhoto"
-            app:layout_constraintHorizontal_bias="0.276"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/buttonLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onSetLocation"
-            android:text="Loc"
+            android:onClick="onPickImage"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/buttonTakePhoto"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/buttonPickPhoto"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintEnd_toStartOf="@+id/buttonTakePhoto"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonTakePhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onTakeImage"
             android:text="Take Photo"
+            android:onClick="onTakeImage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/buttonLocation"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toEndOf="@+id/buttonPickPhoto"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
