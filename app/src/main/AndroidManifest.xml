@@ -31,12 +31,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.Light"
-        tools:targetApi="30">
+        tools:targetApi="30"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".Save_data"
             android:exported="false" />
         <activity
-            android:name=".web_search"
+            android:name=".Web_search"
             android:exported="false" />
         <activity
             android:name=".custom_dialog_layout"

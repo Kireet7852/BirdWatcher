@@ -1,28 +1,21 @@
 package com.example.birdwatcher.image;
 
 
-
-
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.example.birdwatcher.R;
-import com.example.birdwatcher.helpers.MLImageHelperActivity;
 import com.example.birdwatcher.LocationSet;
-import com.example.birdwatcher.web_search;
+import com.example.birdwatcher.R;
+import com.example.birdwatcher.Web_search;
+import com.example.birdwatcher.helpers.MLImageHelperActivity;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.label.ImageLabel;
 import com.google.mlkit.vision.label.ImageLabeler;
@@ -100,24 +93,23 @@ public class ImageClassificationActivity extends MLImageHelperActivity {
                 Toast.makeText(this, "Clicked: " + clickedItem, Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Select follow option");
+//                builder.setTitle("Choose an option");
                 View dialogView = getLayoutInflater().inflate(R.layout.activity_custom_dialog_layout, null);
                 builder.setView(dialogView);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
 
                 Button cancelButton = dialogView.findViewById(R.id.cancel_button);
 
                 cancelButton.setOnClickListener((v) -> {
-//                    dialog.dismiss();
 
-//                    WebView webView = findViewById(R.id.web_View);
                     String word = clickedItem.split(":")[0].trim();
-//                    String web = "https://www.google.com/search?q=" + word;
-//                    webView.setWebViewClient(new WebViewClient());
-//                    webView.getSettings().setJavaScriptEnabled(true);
-//                    webView.loadUrl(web);
 
-                    Intent intent = new Intent(this, web_search.class);
-                    intent.putExtra("query", word);
+
+                    Intent intent = new Intent(this, Web_search.class);
+                    intent.putExtra("querys", word);
+                    startActivity(intent);
+                    alertDialog.dismiss();
                 });
 
                 Button okButton = dialogView.findViewById(R.id.ok_button);
@@ -136,11 +128,9 @@ public class ImageClassificationActivity extends MLImageHelperActivity {
                     intent.putExtra("formattedDataTime", formattedDateTime);
                     intent.putExtra("confidence_level",clickedItem.split(":")[1].trim());
                     startActivity(intent);
-//                    dialog.dismiss();
+                    alertDialog.dismiss();
                 });
 
-                AlertDialog dialog = builder.create();
-                dialog.show();
             });
         }).addOnFailureListener(e -> {
             e.printStackTrace();
