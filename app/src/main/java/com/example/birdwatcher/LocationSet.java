@@ -3,10 +3,6 @@ package com.example.birdwatcher;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -18,15 +14,15 @@ import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.birdwatcher.helpers.LocationTrack;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseException;
@@ -35,13 +31,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 public class LocationSet extends AppCompatActivity {
 
@@ -138,10 +129,10 @@ public class LocationSet extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Longitude:" + longitude + "\nLatitude:" + latitude, Toast.LENGTH_SHORT).show();
                     Geocoder geocoder = new Geocoder(LocationSet.this, Locale.getDefault());
                     try {
-                        List<Address> addresses = null;
-                        addresses = geocoder.getFromLocation(latitude, longitude, 1);
-                        latitude_label.setText(df.format(addresses.get(0).getLatitude()));
-                        longitude_label.setText(df.format(addresses.get(0).getLongitude()));
+                        ArrayList<Address> addresses;
+                        addresses = (ArrayList<Address>) geocoder.getFromLocation(latitude, longitude, 1);
+                        latitude_label.setText(df.format(latitude));
+                        longitude_label.setText(df.format(longitude));
                         address.setText(addresses.get(0).getAddressLine(0));
                         city.setText(addresses.get(0).getLocality());
                         country.setText(addresses.get(0).getCountryName());
