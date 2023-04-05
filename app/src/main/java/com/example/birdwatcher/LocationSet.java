@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Locale;
-
 public class LocationSet extends AppCompatActivity {
 
 //    FusedLocationProviderClient fusedLocationProviderClient;
@@ -123,7 +122,10 @@ public class LocationSet extends AppCompatActivity {
 
 
                     double longitude = locationTrack.getLongitude();
+                    //longitude = 72.997772217;
                     double latitude = locationTrack.getLatitude();
+                    //latitude = 19.120159149;
+
                     DecimalFormat df = new DecimalFormat("#.#####");
 
                     Toast.makeText(getApplicationContext(), "Longitude:" + longitude + "\nLatitude:" + latitude, Toast.LENGTH_SHORT).show();
